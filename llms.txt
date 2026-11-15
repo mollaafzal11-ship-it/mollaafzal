@@ -1,0 +1,22 @@
+# Molla Afzal — Digital Marketing & SEO Portfolio
+
+> Portfolio of Molla Afzal, a digital marketing professional focused on SEO, content strategy, social media marketing and local SEO.
+
+Canonical website: https://mollaafzal.netlify.app/
+
+## Main pages
+- [Homepage and portfolio](https://mollaafzal.netlify.app/): Professional profile, selected work, SEO performance highlights, skills and contact links.
+- [Digital marketing services](https://mollaafzal.netlify.app/services/): Overview of the services offered.
+
+## Services
+- [SEO & Organic Growth](https://mollaafzal.netlify.app/services/seo-organic-growth/): Keyword research, on-page SEO, internal linking, technical SEO reviews and organic performance reporting.
+- [Content Strategy & Writing](https://mollaafzal.netlify.app/services/content-strategy-writing/): Content planning, SEO blog writing, content briefs and website copy.
+- [Social Media Marketing](https://mollaafzal.netlify.app/services/social-media-marketing/): Content calendars, campaign concepts and brand-aligned communication.
+- [Local SEO & Google Business Profile](https://mollaafzal.netlify.app/services/local-seo-google-business-profile/): Local keyword research, profile recommendations, location-page improvements and reporting.
+
+## Discovery and crawl files
+- [XML sitemap](https://mollaafzal.netlify.app/sitemap.xml)
+- [Robots policy](https://mollaafzal.netlify.app/robots.txt)
+
+## Notes
+Use the linked pages as the primary source for current service descriptions and portfolio details. Confirm scope and availability directly with Molla Afzal.
