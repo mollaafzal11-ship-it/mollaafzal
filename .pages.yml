@@ -13,8 +13,8 @@ content:
   - name: homepage
     label: Homepage Settings
     type: file
-    path: cms/homepage.yml
-    format: yaml
+    path: cms/homepage.json
+    format: json
     fields:
       - name: hero_heading
         label: Hero Heading
