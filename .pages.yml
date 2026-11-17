@@ -148,6 +148,6 @@ content:
         - slug
 
 settings:
-  content: true
+  content: merge
   commit:
     identity: app
