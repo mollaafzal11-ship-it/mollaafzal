@@ -1,0 +1,153 @@
+
+media:
+  input: portfolio_assets
+  output: /portfolio_assets
+  extensions:
+    - png
+    - jpg
+    - jpeg
+    - webp
+    - svg
+
+content:
+  - name: homepage
+    label: Homepage Settings
+    type: file
+    path: cms/homepage.yml
+    format: yaml
+    fields:
+      - name: hero_heading
+        label: Hero Heading
+        type: string
+      - name: hero_description
+        label: Hero Description
+        type: text
+      - name: profile_image
+        label: Profile Image
+        type: image
+      - name: about
+        label: About Me
+        type: rich-text
+      - name: seo_title
+        label: SEO Title
+        type: string
+      - name: seo_description
+        label: SEO Description
+        type: text
+
+  - name: services
+    label: Services
+    type: collection
+    path: cms/services
+    format: yaml-frontmatter
+    filename: "{slug}.md"
+    fields:
+      - name: title
+        label: Service Name
+        type: string
+        required: true
+      - name: slug
+        label: URL Slug
+        type: string
+        required: true
+      - name: short_description
+        label: Short Description
+        type: text
+      - name: image
+        label: Service Image
+        type: image
+      - name: body
+        label: Service Content
+        type: rich-text
+      - name: seo_title
+        label: SEO Title
+        type: string
+      - name: seo_description
+        label: SEO Description
+        type: text
+    view:
+      primary: title
+      fields:
+        - title
+        - slug
+
+  - name: projects
+    label: Portfolio Projects
+    type: collection
+    path: cms/projects
+    format: yaml-frontmatter
+    filename: "{slug}.md"
+    fields:
+      - name: title
+        label: Project Name
+        type: string
+        required: true
+      - name: slug
+        label: URL Slug
+        type: string
+        required: true
+      - name: client
+        label: Client Name
+        type: string
+      - name: category
+        label: Project Category
+        type: string
+      - name: summary
+        label: Project Summary
+        type: text
+      - name: image
+        label: Project Image
+        type: image
+      - name: website_url
+        label: Website URL
+        type: string
+      - name: body
+        label: Project Details
+        type: rich-text
+    view:
+      primary: title
+      fields:
+        - title
+        - client
+        - category
+
+  - name: pages
+    label: Website Pages
+    type: collection
+    path: cms/pages
+    format: yaml-frontmatter
+    filename: "{slug}.md"
+    fields:
+      - name: title
+        label: Page Title
+        type: string
+        required: true
+      - name: slug
+        label: URL Slug
+        type: string
+        required: true
+      - name: description
+        label: Page Description
+        type: text
+      - name: featured_image
+        label: Featured Image
+        type: image
+      - name: body
+        label: Page Content
+        type: rich-text
+      - name: seo_title
+        label: SEO Title
+        type: string
+      - name: seo_description
+        label: SEO Description
+        type: text
+    view:
+      primary: title
+      fields:
+        - title
+        - slug
+
+settings:
+  content: true
+  commit:
+    identity: app
