@@ -1,4 +1,3 @@
-
 media:
   input: portfolio_assets
   output: /portfolio_assets
@@ -16,23 +15,26 @@ content:
     path: cms/homepage.json
     format: json
     fields:
-      - name: hero_heading
-        label: Hero Heading
-        type: string
-      - name: hero_description
-        label: Hero Description
-        type: text
-      - name: profile_image
-        label: Profile Image
-        type: image
-      - name: about
-        label: About Me
-        type: rich-text
       - name: seo_title
         label: SEO Title
         type: string
       - name: seo_description
         label: SEO Description
+        type: text
+      - name: hero_eyebrow
+        label: Hero Intro Label
+        type: string
+      - name: hero_description
+        label: Hero Description
+        type: text
+      - name: about_eyebrow
+        label: About Section Label
+        type: string
+      - name: about_paragraph_1
+        label: About Paragraph 1
+        type: text
+      - name: about_paragraph_2
+        label: About Paragraph 2
         type: text
 
   - name: services
