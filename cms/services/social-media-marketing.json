@@ -1,0 +1,48 @@
+{
+  "title": "Social Media Marketing",
+  "slug": "social-media-marketing",
+  "short_description": "Social media content planning, calendars, campaign concepts and brand-aligned communication to help businesses publish consistently and communicate clearly.",
+  "hero_heading": "Social media marketing",
+  "hero_description": "A consistent social presence is built with a clear audience, a useful message and a realistic publishing plan—not just frequent posts.",
+  "seo_title": "Social Media Marketing & Brand Communication | Molla Afzal",
+  "seo_description": "Social media content planning, calendars, campaign concepts and brand-aligned communication to help businesses publish consistently and communicate clearly.",
+  "sections": [
+    {
+      "type": "text",
+      "body": "The goal is to connect brand communication with audience interests, seasonal moments and business priorities while keeping the tone recognizably yours."
+    },
+    {
+      "type": "cards",
+      "items": [
+        {
+          "title": "What this can include",
+          "items": [
+            "Social media content calendars",
+            "Post and campaign concepts",
+            "Caption and message development",
+            "Creative direction for static posts and short-form content",
+            "Competitor and audience-content observations",
+            "Basic performance review and next-step recommendations"
+          ]
+        },
+        {
+          "title": "How content is planned",
+          "items": [
+            "Clarify audience, offer and communication goal",
+            "Choose content themes and formats",
+            "Build a practical publishing calendar",
+            "Create and review content before publishing",
+            "Use performance signals to refine future content"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "heading": "Need support with this service?",
+      "text": "Tell me about your business, current website and goals. I can suggest practical next steps based on your needs.",
+      "button_text": "Discuss your project",
+      "button_url": "/#contact"
+    }
+  ]
+}
