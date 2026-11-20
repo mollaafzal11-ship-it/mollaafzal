@@ -72,11 +72,13 @@
       setText('.brand-copy strong', settings.brand.name);
       setText('.brand-copy small', settings.brand.subtitle);
       setText('.brand small', settings.brand.subtitle);
-      setText('.monogram', settings.brand.monogram);
-      if (settings.brand.logo) {
-        const logo = document.querySelector('.brand .monogram img');
-        if (logo) logo.src = settings.brand.logo;
-      }
+      const monogram = document.querySelector('.brand .monogram');
+      if (monogram && settings.brand.logo) {
+        const logo = document.createElement('img');
+        logo.src = settings.brand.logo;
+        logo.alt = settings.brand.name || 'Brand';
+        monogram.replaceChildren(logo);
+      } else if (monogram) { monogram.textContent = settings.brand.monogram || 'MA'; }
     }
     if (Array.isArray(settings.navigation) && settings.navigation.length) {
       const nav = document.querySelector('#navlinks') || document.querySelector('header nav');
