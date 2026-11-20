@@ -1,0 +1,48 @@
+{
+  "title": "Content Strategy & Writing",
+  "slug": "content-strategy-writing",
+  "short_description": "Audience-first content strategy, SEO blog writing, topic planning, content briefs and website copy aligned with search intent and business goals.",
+  "hero_heading": "Content strategy & writing",
+  "hero_description": "Useful content should answer real questions, reflect the brand accurately and help readers take a sensible next step.",
+  "seo_title": "Content Strategy & Writing | Molla Afzal",
+  "seo_description": "Audience-first content strategy, SEO blog writing, topic planning, content briefs and website copy aligned with search intent and business goals.",
+  "sections": [
+    {
+      "type": "text",
+      "body": "I help organize content around audience needs and search intent, with a focus on clear writing, useful structure and a consistent publishing direction."
+    },
+    {
+      "type": "cards",
+      "items": [
+        {
+          "title": "What this can include",
+          "items": [
+            "Blog topic research and editorial planning",
+            "SEO content briefs and keyword-to-page mapping",
+            "Blog writing and on-page content improvements",
+            "Content refresh recommendations for existing pages",
+            "Internal-link suggestions between related pages",
+            "Brand-aware copy for website and campaign content"
+          ]
+        },
+        {
+          "title": "A practical workflow",
+          "items": [
+            "Understand the audience and business offering",
+            "Review existing content and competing results",
+            "Choose topics based on relevance and intent",
+            "Draft, optimize and review content",
+            "Track performance and identify useful updates"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "heading": "Need support with this service?",
+      "text": "Tell me about your business, current website and goals. I can suggest practical next steps based on your needs.",
+      "button_text": "Discuss your project",
+      "button_url": "/#contact"
+    }
+  ]
+}
