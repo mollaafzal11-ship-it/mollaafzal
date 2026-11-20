@@ -77,6 +77,7 @@
         const logo = document.createElement('img');
         logo.src = settings.brand.logo;
         logo.alt = settings.brand.name || 'Brand';
+        logo.style.cssText = 'width:100%;height:100%;object-fit:cover;border-radius:50%;display:block';
         monogram.replaceChildren(logo);
       } else if (monogram) { monogram.textContent = settings.brand.monogram || 'MA'; }
     }
@@ -87,7 +88,7 @@
         settings.navigation.forEach(item => {
           if (!item || !item.label || !item.url) return;
           const link = document.createElement('a');
-          link.href = item.url;
+          link.href = (window.location.pathname !== '/' && item.url.startsWith('#')) ? '/' + item.url : item.url;
           link.textContent = item.label;
           if (item.highlight) link.className = 'navcta';
           nav.appendChild(link);
@@ -109,7 +110,7 @@
           if (!item || !item.label || !item.url) return;
           if (index) footerLinks.append(' · ');
           const link = document.createElement('a');
-          link.href = item.url;
+          link.href = (window.location.pathname !== '/' && item.url.startsWith('#')) ? '/' + item.url : item.url;
           link.textContent = item.label;
           footerLinks.appendChild(link);
         });
