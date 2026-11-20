@@ -123,7 +123,7 @@ collections:
             widget: "object"
             fields:
               - { label: "Section Heading", name: "heading", widget: "string" }
-              - { label: "Cards", name: "items", widget: "list", fields: [{ label: "Title", name: "title", widget: "string" }, { label: "Description", name: "description", widget: "text" }] }
+              - { label: "Cards", name: "items", widget: "list", fields: [{ label: "Title", name: "title", widget: "string" }, { label: "Bullet Points", name: "items", widget: "list", field: { label: "Bullet", name: "item", widget: "string" } }] }
           - label: "Call to Action"
             name: "cta"
             widget: "object"
