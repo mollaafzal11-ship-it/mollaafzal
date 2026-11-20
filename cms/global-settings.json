@@ -51,6 +51,18 @@
     "copyright": "© 2026 Afzal. Built with intention.",
     "links": [
       {
+        "label": "Home",
+        "url": "/"
+      },
+      {
+        "label": "Services",
+        "url": "/services/"
+      },
+      {
+        "label": "Contact",
+        "url": "/#contact"
+      },
+      {
         "label": "Back to top",
         "url": "#top"
       }
