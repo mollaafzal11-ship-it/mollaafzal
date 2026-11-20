@@ -16,35 +16,20 @@
     return response.json();
   };
 
-  // Keep the Experience column inside the two-column about grid.
-  // The original HTML accidentally placed this block after the .about-grid wrapper,
-  // so it escaped the centered content container and aligned against the viewport.
+  // The Experience column is a sibling of .about-grid in the original HTML.
+  // Move it into the same centered two-column grid as .about-copy.
   if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
     const aboutSection = document.querySelector('section.about');
     const aboutGrid = aboutSection && aboutSection.querySelector('.about-grid');
     if (aboutSection && aboutGrid) {
       const experienceColumn = [...aboutSection.children].find(child =>
+        child !== aboutGrid &&
         child.classList.contains('reveal') &&
         [...child.querySelectorAll('.eyebrow')].some(node =>
           node.textContent.trim().toLowerCase() === 'experience'
         )
       );
-      if (experienceColumn && experienceColumn.parentElement !== aboutGrid) {
-        aboutGrid.appendChild(experienceColumn);
-      }
-    }
-  }
-
-  if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
-    const aboutSection = document.querySelector('section.about');
-    const experienceEyebrow = aboutSection && [...aboutSection.querySelectorAll('.eyebrow')]
-      .find(node => node.textContent.trim().toLowerCase() === 'experience');
-    const experienceBlock = experienceEyebrow && experienceEyebrow.parentElement;
-    if (experienceBlock && experienceBlock.parentElement === aboutSection && !experienceBlock.parentElement.classList.contains('wrap')) {
-      const alignedWrap = document.createElement('div');
-      alignedWrap.className = 'wrap experience-wrap';
-      aboutSection.insertBefore(alignedWrap, experienceBlock);
-      alignedWrap.appendChild(experienceBlock);
+      if (experienceColumn) aboutGrid.appendChild(experienceColumn);
     }
   }
 
