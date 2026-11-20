@@ -16,6 +16,7 @@
     return response.json();
   };
 
+  if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
   try {
     const data = await readJson('/cms/homepage.json');
     if (data.seo_title) {
@@ -41,6 +42,7 @@
   } catch (error) {
     console.warn('Homepage CMS content could not be loaded; showing the static HTML fallback.', error);
   }
+  }
 
   try {
     const settings = await readJson('/cms/global-settings.json');
@@ -60,11 +62,16 @@
     Object.entries(cssVars).forEach(([key, variable]) => {
       if (typeof design[key] === 'string' && design[key].trim()) root.style.setProperty(variable, design[key]);
     });
+    const aliases = { background: '--bg', panel: '--panel', text: '--text', muted: '--muted', accent: '--orange', border: '--line', heading_font: '--serif', body_font: '--sans', content_width: '--max' };
+    Object.entries(aliases).forEach(([key, variable]) => {
+      if (typeof design[key] === 'string' && design[key].trim()) root.style.setProperty(variable, design[key]);
+    });
     if (design.corner_radius) root.style.setProperty('--cms-radius', design.corner_radius);
 
     if (settings.brand) {
       setText('.brand-copy strong', settings.brand.name);
       setText('.brand-copy small', settings.brand.subtitle);
+      setText('.brand small', settings.brand.subtitle);
       setText('.monogram', settings.brand.monogram);
       if (settings.brand.logo) {
         const logo = document.querySelector('.brand .monogram img');
@@ -72,7 +79,7 @@
       }
     }
     if (Array.isArray(settings.navigation) && settings.navigation.length) {
-      const nav = document.querySelector('#navlinks');
+      const nav = document.querySelector('#navlinks') || document.querySelector('header nav');
       if (nav) {
         nav.replaceChildren();
         settings.navigation.forEach(item => {
@@ -93,6 +100,18 @@
     if (settings.footer) {
       const copyright = document.querySelector('.footer-inner > span:first-child');
       if (copyright && settings.footer.copyright) copyright.textContent = settings.footer.copyright;
+      const footerLinks = document.querySelector('.footer-inner > span:last-child');
+      if (footerLinks && Array.isArray(settings.footer.links)) {
+        footerLinks.replaceChildren();
+        settings.footer.links.forEach((item, index) => {
+          if (!item || !item.label || !item.url) return;
+          if (index) footerLinks.append(' · ');
+          const link = document.createElement('a');
+          link.href = item.url;
+          link.textContent = item.label;
+          footerLinks.appendChild(link);
+        });
+      }
     }
     const contact = settings.contact || {};
     if (contact.whatsapp_url) {
