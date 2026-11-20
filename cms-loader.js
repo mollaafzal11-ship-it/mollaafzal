@@ -16,20 +16,16 @@
     return response.json();
   };
 
-  // The Experience column is a sibling of .about-grid in the original HTML.
-  // Move it into the same centered two-column grid as .about-copy.
+  // Align Experience with About by moving the column that contains the experience list
+  // into the existing centered two-column .about-grid. Locate it by its unique content,
+  // not by assumptions about the wrapper's class or direct-child structure.
   if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
     const aboutSection = document.querySelector('section.about');
     const aboutGrid = aboutSection && aboutSection.querySelector('.about-grid');
-    if (aboutSection && aboutGrid) {
-      const experienceColumn = [...aboutSection.children].find(child =>
-        child !== aboutGrid &&
-        child.classList.contains('reveal') &&
-        [...child.querySelectorAll('.eyebrow')].some(node =>
-          node.textContent.trim().toLowerCase() === 'experience'
-        )
-      );
-      if (experienceColumn) aboutGrid.appendChild(experienceColumn);
+    const experienceList = aboutSection && aboutSection.querySelector('.experience-list');
+    const experienceColumn = experienceList && experienceList.closest('.reveal');
+    if (aboutGrid && experienceColumn && !aboutGrid.contains(experienceColumn)) {
+      aboutGrid.appendChild(experienceColumn);
     }
   }
 
