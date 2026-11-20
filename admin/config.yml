@@ -40,7 +40,7 @@ collections:
     folder: "cms/services"
     create: true
     extension: "md"
-    format: "frontmatter"
+    format: "yaml-frontmatter"
     slug: "{{slug}}"
     fields:
       - { label: "Service Name", name: "title", widget: "string" }
@@ -56,7 +56,7 @@ collections:
     folder: "cms/projects"
     create: true
     extension: "md"
-    format: "frontmatter"
+    format: "yaml-frontmatter"
     slug: "{{slug}}"
     fields:
       - { label: "Project Name", name: "title", widget: "string" }
@@ -73,7 +73,7 @@ collections:
     folder: "cms/pages"
     create: true
     extension: "md"
-    format: "frontmatter"
+    format: "yaml-frontmatter"
     slug: "{{slug}}"
     fields:
       - { label: "Page Title", name: "title", widget: "string" }
