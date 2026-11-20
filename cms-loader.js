@@ -30,6 +30,25 @@
       setMeta('meta[name="twitter:description"]', data.seo_description);
     }
     setText('.hero .eyebrow', data.hero_eyebrow);
+    const heroHeading = document.querySelector('.hero h1');
+    if (heroHeading && (data.hero_heading_line1 || data.hero_heading_line2 || data.hero_heading_accent)) {
+      const line2 = document.createElement('span');
+      line2.className = 'line2';
+      line2.append(document.createTextNode((data.hero_heading_line2 || '') + ' '));
+      const accent = document.createElement('span');
+      accent.className = 'serif';
+      accent.textContent = data.hero_heading_accent || '';
+      line2.appendChild(accent);
+      heroHeading.replaceChildren(document.createTextNode(data.hero_heading_line1 || ''), document.createElement('br'), line2);
+    }
+    const primaryButton = document.querySelector('.hero .btn');
+    if (primaryButton && data.primary_button_text) {
+      primaryButton.textContent = data.primary_button_text + ' ';
+      const arrow = document.createElement('span');
+      arrow.textContent = '↘';
+      primaryButton.appendChild(arrow);
+    }
+    if (primaryButton && data.primary_button_url) primaryButton.href = data.primary_button_url;
     setText('.hero .hero-desc', data.hero_description);
     setText('.about-copy .eyebrow', data.about_eyebrow);
     const aboutParagraphs = document.querySelectorAll('.about-copy p');
