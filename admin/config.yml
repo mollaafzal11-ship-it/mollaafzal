@@ -23,7 +23,6 @@ collections:
           - { label: "SEO Title", name: "seo_title", widget: "string", required: true }
           - { label: "SEO Description", name: "seo_description", widget: "text", required: true }
           - { label: "Hero Eyebrow", name: "hero_eyebrow", widget: "string" }
-          - { label: "Hero Heading", name: "hero_heading", widget: "string" }
           - { label: "Hero Description", name: "hero_description", widget: "text" }
           - { label: "Primary Button Text", name: "primary_button_text", widget: "string", required: false }
           - { label: "Primary Button URL", name: "primary_button_url", widget: "string", required: false }
