@@ -1,0 +1,42 @@
+{
+  "brand": {
+    "name": "AFZAL",
+    "subtitle": "Digital Marketing & SEO",
+    "monogram": "MA",
+    "logo": "/favicon.svg"
+  },
+  "navigation": [
+    {"label":"Home","url":"/","highlight":false},
+    {"label":"Services","url":"/services/","highlight":false},
+    {"label":"Selected work","url":"/#work","highlight":false},
+    {"label":"About","url":"/#about","highlight":false},
+    {"label":"Let's talk","url":"/#contact","highlight":true}
+  ],
+  "footer": {
+    "copyright": "© 2026 Molla Afzal · Digital Marketing & SEO",
+    "links": [
+      {"label":"Home","url":"/"},
+      {"label":"Services","url":"/services/"},
+      {"label":"Contact","url":"/#contact"}
+    ]
+  },
+  "contact": {
+    "email": "",
+    "phone": "",
+    "whatsapp_url": "",
+    "linkedin_url": "",
+    "instagram_url": ""
+  },
+  "design": {
+    "background": "#20201e",
+    "panel": "#292927",
+    "text": "#f5f2ec",
+    "muted": "#aaa8a1",
+    "accent": "#e87943",
+    "border": "rgba(245,242,236,.15)",
+    "heading_font": "Georgia, 'Times New Roman', serif",
+    "body_font": "Inter, Arial, sans-serif",
+    "content_width": "1120px",
+    "corner_radius": "16px"
+  }
+}
