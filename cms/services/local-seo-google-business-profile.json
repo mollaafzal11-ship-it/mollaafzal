@@ -1,0 +1,47 @@
+{
+  "title": "Local SEO & Google Business Profile",
+  "slug": "local-seo-google-business-profile",
+  "short_description": "Local SEO support including Google Business Profile recommendations, local keyword research, location-page improvements and local search performance reporting.",
+  "hero_heading": "Local SEO & Google Business Profile",
+  "hero_description": "Help nearby customers understand what your business offers, where you serve them and how to take the next step.",
+  "seo_title": "Local SEO & Google Business Profile | Molla Afzal",
+  "seo_description": "Local SEO support including Google Business Profile recommendations, local keyword research, location-page improvements and local search performance reporting.",
+  "sections": [
+    {
+      "type": "text",
+      "body": "Local search work focuses on accurate business information, relevant location signals and useful pages that match what people are looking for in a specific area."
+    },
+    {
+      "type": "cards",
+      "items": [
+        {
+          "title": "What this can include",
+          "items": [
+            "Google Business Profile audit and optimization recommendations",
+            "Local keyword and competitor research",
+            "Location-page content and metadata recommendations",
+            "NAP consistency checks across key business listings",
+            "Review-response and profile-content guidance",
+            "Local search performance reporting using available data"
+          ]
+        },
+        {
+          "title": "What good progress looks like",
+          "items": [
+            "Accurate, consistent business information",
+            "A profile that reflects current services and service areas",
+            "Useful location content that answers customer questions",
+            "Clear tracking of calls, website visits and search visibility where data is available"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "heading": "Need support with this service?",
+      "text": "Tell me about your business, current website and goals. I can suggest practical next steps based on your needs.",
+      "button_text": "Discuss your project",
+      "button_url": "/#contact"
+    }
+  ]
+}

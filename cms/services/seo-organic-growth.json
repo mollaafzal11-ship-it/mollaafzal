@@ -1,0 +1,48 @@
+{
+  "title": "SEO & Organic Growth",
+  "slug": "seo-organic-growth",
+  "short_description": "SEO support including keyword research, on-page SEO, internal linking, content mapping, technical SEO reviews and organic performance reporting.",
+  "hero_heading": "SEO & organic growth",
+  "hero_description": "Improve how your website is understood by search engines and how easily potential customers find the pages that answer their questions.",
+  "seo_title": "SEO & Organic Growth Services | Molla Afzal",
+  "seo_description": "SEO support including keyword research, on-page SEO, internal linking, content mapping, technical SEO reviews and organic performance reporting.",
+  "sections": [
+    {
+      "type": "text",
+      "body": "SEO work starts with understanding the website, the search landscape and the pages most likely to support business goals. Priorities are then organized into practical actions rather than disconnected tasks."
+    },
+    {
+      "type": "cards",
+      "items": [
+        {
+          "title": "What this can include",
+          "items": [
+            "Keyword research and search-intent mapping",
+            "On-page titles, meta descriptions, headings and content recommendations",
+            "Internal linking and content structure improvements",
+            "Technical SEO checks for crawlability, indexability, canonical tags and sitemap coverage",
+            "Competitor and content-gap analysis",
+            "Google Search Console performance reviews"
+          ]
+        },
+        {
+          "title": "How I approach the work",
+          "items": [
+            "Review the current website and available search data",
+            "Identify issues and opportunities by impact and effort",
+            "Prepare a prioritized action plan",
+            "Implement agreed updates or coordinate with the developer",
+            "Measure changes using Search Console and analytics data"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "heading": "Need support with this service?",
+      "text": "Tell me about your business, current website and goals. I can suggest practical next steps based on your needs.",
+      "button_text": "Discuss your project",
+      "button_url": "/#contact"
+    }
+  ]
+}

@@ -1,0 +1,210 @@
+# Decap CMS configuration — isolated integration branch
+backend:
+  name: github
+  repo: mollaafzal11-ship-it/mollaafzal
+  branch: decap-cms-integration
+
+media_folder: "portfolio_assets"
+public_folder: "/portfolio_assets"
+publish_mode: editorial_workflow
+site_url: "https://mollaafzal.netlify.app"
+display_url: "https://mollaafzal.netlify.app"
+logo_url: "/favicon.svg"
+
+collections:
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - name: "homepage_content"
+        label: "Homepage Content"
+        file: "cms/homepage.json"
+        format: "json"
+        fields:
+          - { label: "SEO Title", name: "seo_title", widget: "string", required: true }
+          - { label: "SEO Description", name: "seo_description", widget: "text", required: true }
+          - { label: "Hero Eyebrow", name: "hero_eyebrow", widget: "string" }
+          - { label: "Hero Heading Line 1", name: "hero_heading_line1", widget: "string" }
+          - { label: "Hero Heading Line 2", name: "hero_heading_line2", widget: "string" }
+          - { label: "Hero Heading Accent", name: "hero_heading_accent", widget: "string" }
+          - { label: "Hero Description", name: "hero_description", widget: "text" }
+          - { label: "Primary Button Text", name: "primary_button_text", widget: "string", required: false }
+          - { label: "Primary Button URL", name: "primary_button_url", widget: "string", required: false }
+          - { label: "Profile Image", name: "profile_image", widget: "image", required: false }
+          - { label: "About Eyebrow", name: "about_eyebrow", widget: "string" }
+          - { label: "About Paragraph 1", name: "about_paragraph_1", widget: "text" }
+          - { label: "About Paragraph 2", name: "about_paragraph_2", widget: "text" }
+
+  - name: "global"
+    label: "Global Website Settings"
+    files:
+      - name: "global_settings"
+        label: "Navigation, Footer & Design"
+        file: "cms/global-settings.json"
+        format: "json"
+        fields:
+          - label: "Brand"
+            name: "brand"
+            widget: "object"
+            fields:
+              - { label: "Brand Name", name: "name", widget: "string" }
+              - { label: "Brand Subtitle", name: "subtitle", widget: "string" }
+              - { label: "Monogram", name: "monogram", widget: "string" }
+              - { label: "Logo", name: "logo", widget: "image", required: false }
+          - label: "Navigation"
+            name: "navigation"
+            widget: "list"
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Highlight as Button", name: "highlight", widget: "boolean", default: false }
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "Copyright Text", name: "copyright", widget: "string" }
+              - { label: "Footer Links", name: "links", widget: "list", fields: [{ label: "Label", name: "label", widget: "string" }, { label: "URL", name: "url", widget: "string" }] }
+          - label: "Contact & Social"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Email", name: "email", widget: "string", required: false }
+              - { label: "Phone", name: "phone", widget: "string", required: false }
+              - { label: "WhatsApp URL", name: "whatsapp_url", widget: "string", required: false }
+              - { label: "LinkedIn URL", name: "linkedin_url", widget: "string", required: false }
+              - { label: "Instagram URL", name: "instagram_url", widget: "string", required: false }
+          - label: "Design Tokens"
+            name: "design"
+            widget: "object"
+            fields:
+              - { label: "Background Color", name: "background", widget: "color", allowInput: true }
+              - { label: "Panel Color", name: "panel", widget: "color", allowInput: true }
+              - { label: "Text Color", name: "text", widget: "color", allowInput: true }
+              - { label: "Muted Text Color", name: "muted", widget: "color", allowInput: true }
+              - { label: "Accent Color", name: "accent", widget: "color", allowInput: true }
+              - { label: "Border Color", name: "border", widget: "color", allowInput: true }
+              - { label: "Heading Font", name: "heading_font", widget: "string" }
+              - { label: "Body Font", name: "body_font", widget: "string" }
+              - { label: "Content Width", name: "content_width", widget: "string", hint: "For example: 1120px or 70rem" }
+              - { label: "Corner Radius", name: "corner_radius", widget: "string", hint: "For example: 16px" }
+
+  - name: "services"
+    label: "Services"
+    folder: "cms/services"
+    create: true
+    extension: "json"
+    format: "json"
+    slug: "{{slug}}"
+    fields:
+      - { label: "Service Name", name: "title", widget: "string" }
+      - { label: "URL Slug", name: "slug", widget: "string" }
+      - { label: "Short Description", name: "short_description", widget: "text" }
+      - { label: "Service Image", name: "image", widget: "image", required: false }
+      - { label: "Hero Eyebrow", name: "eyebrow", widget: "string", required: false }
+      - { label: "Hero Heading", name: "hero_heading", widget: "string", required: false }
+      - { label: "Hero Description", name: "hero_description", widget: "text", required: false }
+      - label: "Page Sections"
+        name: "sections"
+        widget: "list"
+        types:
+          - label: "Text Section"
+            name: "text"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Body", name: "body", widget: "markdown" }
+          - label: "Image & Text"
+            name: "image_text"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Body", name: "body", widget: "markdown" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Image Position", name: "image_position", widget: "select", options: ["left", "right"] }
+          - label: "Feature Cards"
+            name: "cards"
+            widget: "object"
+            fields:
+              - { label: "Section Heading", name: "heading", widget: "string" }
+              - { label: "Cards", name: "items", widget: "list", fields: [{ label: "Title", name: "title", widget: "string" }, { label: "Bullet Points", name: "items", widget: "list", field: { label: "Bullet", name: "item", widget: "string" } }] }
+          - label: "Call to Action"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - { label: "Button Text", name: "button_text", widget: "string" }
+              - { label: "Button URL", name: "button_url", widget: "string" }
+      - { label: "SEO Title", name: "seo_title", widget: "string", required: false }
+      - { label: "SEO Description", name: "seo_description", widget: "text", required: false }
+      - { label: "Canonical URL", name: "canonical_url", widget: "string", required: false }
+
+  - name: "projects"
+    label: "Portfolio Projects"
+    folder: "cms/projects"
+    create: true
+    extension: "json"
+    format: "json"
+    slug: "{{slug}}"
+    fields:
+      - { label: "Project Name", name: "title", widget: "string" }
+      - { label: "URL Slug", name: "slug", widget: "string" }
+      - { label: "Client", name: "client", widget: "string" }
+      - { label: "Category", name: "category", widget: "string" }
+      - { label: "Project Summary", name: "summary", widget: "text" }
+      - { label: "Project Image", name: "image", widget: "image", required: false }
+      - { label: "Website URL", name: "website_url", widget: "string", required: false }
+      - { label: "Project Details", name: "body", widget: "markdown" }
+      - { label: "SEO Title", name: "seo_title", widget: "string", required: false }
+      - { label: "SEO Description", name: "seo_description", widget: "text", required: false }
+
+  - name: "pages"
+    label: "Website Pages"
+    folder: "cms/pages"
+    create: true
+    extension: "json"
+    format: "json"
+    slug: "{{slug}}"
+    fields:
+      - { label: "Page Title", name: "title", widget: "string" }
+      - { label: "URL Slug", name: "slug", widget: "string" }
+      - { label: "Page Description", name: "description", widget: "text" }
+      - { label: "Featured Image", name: "featured_image", widget: "image", required: false }
+      - { label: "Hero Eyebrow", name: "eyebrow", widget: "string", required: false }
+      - { label: "Hero Heading", name: "hero_heading", widget: "string", required: false }
+      - { label: "Hero Description", name: "hero_description", widget: "text", required: false }
+      - label: "Page Sections"
+        name: "sections"
+        widget: "list"
+        types:
+          - label: "Text Section"
+            name: "text"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Body", name: "body", widget: "markdown" }
+          - label: "Image & Text"
+            name: "image_text"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Body", name: "body", widget: "markdown" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Image Position", name: "image_position", widget: "select", options: ["left", "right"] }
+          - label: "Feature Cards"
+            name: "cards"
+            widget: "object"
+            fields:
+              - { label: "Section Heading", name: "heading", widget: "string" }
+              - { label: "Cards", name: "items", widget: "list", fields: [{ label: "Title", name: "title", widget: "string" }, { label: "Description", name: "description", widget: "text" }] }
+          - label: "Call to Action"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - { label: "Button Text", name: "button_text", widget: "string" }
+              - { label: "Button URL", name: "button_url", widget: "string" }
+      - { label: "SEO Title", name: "seo_title", widget: "string", required: false }
+      - { label: "SEO Description", name: "seo_description", widget: "text", required: false }
+      - { label: "Canonical URL", name: "canonical_url", widget: "string", required: false }
