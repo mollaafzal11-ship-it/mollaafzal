@@ -16,8 +16,25 @@
     return response.json();
   };
 
-  // Keep the Experience list aligned to the same centered content grid as the other sections.
-  // In the original markup this block sits directly inside .about, outside the .wrap container.
+  // Keep the Experience column inside the two-column about grid.
+  // The original HTML accidentally placed this block after the .about-grid wrapper,
+  // so it escaped the centered content container and aligned against the viewport.
+  if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+    const aboutSection = document.querySelector('section.about');
+    const aboutGrid = aboutSection && aboutSection.querySelector('.about-grid');
+    if (aboutSection && aboutGrid) {
+      const experienceColumn = [...aboutSection.children].find(child =>
+        child.classList.contains('reveal') &&
+        [...child.querySelectorAll('.eyebrow')].some(node =>
+          node.textContent.trim().toLowerCase() === 'experience'
+        )
+      );
+      if (experienceColumn && experienceColumn.parentElement !== aboutGrid) {
+        aboutGrid.appendChild(experienceColumn);
+      }
+    }
+  }
+
   if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
     const aboutSection = document.querySelector('section.about');
     const experienceEyebrow = aboutSection && [...aboutSection.querySelectorAll('.eyebrow')]
