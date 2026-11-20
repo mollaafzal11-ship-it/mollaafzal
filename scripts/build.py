@@ -10,13 +10,13 @@ def read(p):
 def esc(v): return html.escape(str(v or ""), quote=True)
 
 def meta(doc, pattern, value):
-    return re.sub(pattern, lambda m:m.group(1)+esc(value)+m.group(2), doc, count=1, flags=re.I|re.S)
+    return re.sub(pattern, lambda m:m.group(1)+esc(value)+m.group(3), doc, count=1, flags=re.I|re.S)
 
 def section(s):
     t=s.get("type","text")
     if t=="text":
         h=f'<h2 class="section-title">{esc(s.get("heading"))}</h2>' if s.get("heading") else ""
-        paras="".join(f"<p>{esc(x.strip())}</p>" for x in s.get("body","").split("\\n\\n") if x.strip())
+        paras="".join(f"<p>{esc(x.strip())}</p>" for x in s.get("body","").split(chr(10)+chr(10)) if x.strip())
         return f'<section class="content"><div class="wrap">{h}<div class="body-copy">{paras}</div></div></section>'
     if t=="cards":
         cards=[]
@@ -75,7 +75,7 @@ def main():
                 target.parent.mkdir(parents=True,exist_ok=True)
                 target.write_text(new_page(d,url),encoding="utf-8")
             urls.add(url)
-    sm.write_text('<?xml version="1.0" encoding="UTF-8"?>\\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\\n'+"".join(f"  <url><loc>{html.escape(u)}</loc></url>\\n" for u in sorted(urls))+"</urlset>\\n",encoding="utf-8")
+    sm.write_text('<?xml version="1.0" encoding="UTF-8"?>'+chr(10)+'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+chr(10)+"".join(f"  <url><loc>{html.escape(u)}</loc></url>"+chr(10) for u in sorted(urls))+"</urlset>"+chr(10),encoding="utf-8")
     print("CMS build complete")
 
 if __name__=="__main__": main()
