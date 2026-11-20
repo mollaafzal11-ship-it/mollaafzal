@@ -66,6 +66,7 @@ def main():
                 desc=d.get("seo_description") or d.get("short_description")
                 if title: doc=re.sub(r"<title>.*?</title>",f"<title>{esc(title)}</title>",doc,count=1,flags=re.I|re.S)
                 if desc: doc=meta(doc,r'(<meta name="description" content=")([^"]*)(")',desc)
+                if d.get("hero_heading"): doc=re.sub(r"<h1[^>]*>.*?</h1>",f"<h1>{esc(d['hero_heading'])}</h1>",doc,count=1,flags=re.I|re.S)
                 if d.get("hero_description"): doc=re.sub(r'(<p class="lead">).*?(</p>)',lambda m:m.group(1)+esc(d["hero_description"])+m.group(2),doc,count=1,flags=re.I|re.S)
                 if d.get("sections"):
                     blocks="".join(section(x) for x in d["sections"])
