@@ -16,6 +16,21 @@
     return response.json();
   };
 
+  // Keep the Experience list aligned to the same centered content grid as the other sections.
+  // In the original markup this block sits directly inside .about, outside the .wrap container.
+  if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+    const aboutSection = document.querySelector('section.about');
+    const experienceEyebrow = aboutSection && [...aboutSection.querySelectorAll('.eyebrow')]
+      .find(node => node.textContent.trim().toLowerCase() === 'experience');
+    const experienceBlock = experienceEyebrow && experienceEyebrow.parentElement;
+    if (experienceBlock && experienceBlock.parentElement === aboutSection && !experienceBlock.parentElement.classList.contains('wrap')) {
+      const alignedWrap = document.createElement('div');
+      alignedWrap.className = 'wrap experience-wrap';
+      aboutSection.insertBefore(alignedWrap, experienceBlock);
+      alignedWrap.appendChild(experienceBlock);
+    }
+  }
+
   if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
   try {
     const data = await readJson('/cms/homepage.json');
