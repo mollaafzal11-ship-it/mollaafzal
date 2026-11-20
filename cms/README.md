@@ -6,6 +6,7 @@ This folder contains the Decap CMS admin application and configuration for the s
 
 - The CMS backend targets this branch only. It does not write to `main`.
 - Homepage content is stored in `cms/homepage.json`.
+- Global navigation, footer, contact details, social links and design tokens are stored in `cms/global-settings.json`.
 - Service, project, and page entries are stored as Markdown under their corresponding `cms/` folders.
 - Uploaded media is stored under `portfolio_assets/`.
 
