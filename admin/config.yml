@@ -1,0 +1,85 @@
+# Decap CMS configuration
+# This integration branch is for safe setup and preview testing.
+backend:
+  name: github
+  repo: mollaafzal11-ship-it/mollaafzal
+  branch: decap-cms-integration
+  # GitHub OAuth must be configured before dashboard sign-in can work.
+  # Do not add client secrets to this file.
+
+media_folder: "portfolio_assets"
+public_folder: "/portfolio_assets"
+
+publish_mode: editorial_workflow
+
+site_url: "https://mollaafzal.netlify.app"
+display_url: "https://mollaafzal.netlify.app"
+logo_url: "/favicon.svg"
+
+collections:
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - name: "homepage_content"
+        label: "Homepage Content"
+        file: "cms/homepage.json"
+        format: "json"
+        fields:
+          - { label: "SEO Title", name: "seo_title", widget: "string", required: true }
+          - { label: "SEO Description", name: "seo_description", widget: "text", required: true }
+          - { label: "Hero Eyebrow", name: "hero_eyebrow", widget: "string" }
+          - { label: "Hero Heading", name: "hero_heading", widget: "string" }
+          - { label: "Hero Description", name: "hero_description", widget: "text" }
+          - { label: "Profile Image", name: "profile_image", widget: "image", required: false }
+          - { label: "About Eyebrow", name: "about_eyebrow", widget: "string" }
+          - { label: "About Paragraph 1", name: "about_paragraph_1", widget: "text" }
+          - { label: "About Paragraph 2", name: "about_paragraph_2", widget: "text" }
+
+  - name: "services"
+    label: "Services"
+    folder: "cms/services"
+    create: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+    fields:
+      - { label: "Service Name", name: "title", widget: "string" }
+      - { label: "URL Slug", name: "slug", widget: "string" }
+      - { label: "Short Description", name: "short_description", widget: "text" }
+      - { label: "Service Image", name: "image", widget: "image", required: false }
+      - { label: "Service Content", name: "body", widget: "markdown" }
+      - { label: "SEO Title", name: "seo_title", widget: "string", required: false }
+      - { label: "SEO Description", name: "seo_description", widget: "text", required: false }
+
+  - name: "projects"
+    label: "Portfolio Projects"
+    folder: "cms/projects"
+    create: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+    fields:
+      - { label: "Project Name", name: "title", widget: "string" }
+      - { label: "URL Slug", name: "slug", widget: "string" }
+      - { label: "Client", name: "client", widget: "string" }
+      - { label: "Category", name: "category", widget: "string" }
+      - { label: "Project Summary", name: "summary", widget: "text" }
+      - { label: "Project Image", name: "image", widget: "image", required: false }
+      - { label: "Website URL", name: "website_url", widget: "string", required: false }
+      - { label: "Project Details", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Website Pages"
+    folder: "cms/pages"
+    create: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+    fields:
+      - { label: "Page Title", name: "title", widget: "string" }
+      - { label: "URL Slug", name: "slug", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Featured Image", name: "featured_image", widget: "image", required: false }
+      - { label: "Page Content", name: "body", widget: "markdown" }
+      - { label: "SEO Title", name: "seo_title", widget: "string", required: false }
+      - { label: "SEO Description", name: "seo_description", widget: "text", required: false }
