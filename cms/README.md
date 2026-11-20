@@ -1,23 +1,28 @@
-# Decap CMS integration (test branch)
+# Decap CMS integration
 
-This folder contains the Decap CMS admin application and configuration for the separate `decap-cms-integration` branch.
+This folder contains content managed by Decap CMS on the isolated `decap-cms-integration` branch.
 
-## Current scope
+## CMS collections
 
-- The CMS backend targets this branch only. It does not write to `main`.
-- Homepage content is stored in `cms/homepage.json`.
-- Global navigation, footer, contact details, social links and design tokens are stored in `cms/global-settings.json`.
-- Service, project, and page entries are stored as Markdown under their corresponding `cms/` folders.
-- Uploaded media is stored under `portfolio_assets/`.
+- Homepage: `cms/homepage.json` — homepage SEO, hero copy, headline, button, portrait and About copy.
+- Global Website Settings: `cms/global-settings.json` — brand image/name, navigation, footer links, contact/social URLs and design tokens.
+- Services: `cms/services/*.json` — the four existing service pages, including SEO fields and structured page sections.
+- Portfolio Projects: `cms/projects/*.json` — project entries; the build step can generate a project detail page for each entry.
+- Website Pages: `cms/pages/*.json` — create new static pages using the section builder.
 
-## Important publishing note
+## Publishing/build behavior
 
-This portfolio is a static HTML site rather than a site generated from the CMS content folders. The CMS can edit and commit these content files, but the public HTML pages do not automatically consume those files yet. Do not treat an edited CMS entry as published website content until the front-end rendering integration has been completed and verified. Existing HTML pages are intentionally left untouched during this initial CMS setup.
+The Netlify build command is configured in `netlify.toml` and runs `python3 scripts/build.py`. The script uses only the Python standard library. It updates homepage SEO metadata, applies CMS service-page edits while retaining each existing page shell, creates static pages for new CMS entries, and adds their URLs to `sitemap.xml`.
 
-## Authentication
+The browser loader `cms-loader.js` applies editable homepage copy and global design/navigation/footer/contact settings. Existing HTML remains the fallback if JavaScript or CMS JSON is unavailable.
 
-The GitHub backend requires an OAuth authentication provider. Configure GitHub OAuth in the Netlify site settings using Netlify's documented OAuth callback before attempting to sign in. Never put an OAuth client secret in this repository.
+## Important limitations before production
+
+- The homepage's non-hero sections and existing project-card grid are not yet fully CMS-driven.
+- Generated pages use a separate responsive template; check their appearance on desktop and mobile before publishing.
+- Test the Netlify branch deploy and Decap save/publish workflow before merging.
+- Do not merge this integration branch into `main` until SEO metadata, canonical URLs, sitemap output, image paths and navigation have been checked.
 
 ## Safety
 
-Test edits only on this branch. Do not merge into `main` until authentication, preview, content rendering, image paths, and SEO output have all been verified.
+The CMS backend writes only to `decap-cms-integration`. Never put OAuth client secrets in this repository. The separate Pages CMS draft PR is not part of this integration.
