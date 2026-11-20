@@ -89,8 +89,8 @@ collections:
     label: "Services"
     folder: "cms/services"
     create: true
-    extension: "md"
-    format: "yaml-frontmatter"
+    extension: "json"
+    format: "json"
     slug: "{{slug}}"
     fields:
       - { label: "Service Name", name: "title", widget: "string" }
@@ -140,8 +140,8 @@ collections:
     label: "Portfolio Projects"
     folder: "cms/projects"
     create: true
-    extension: "md"
-    format: "yaml-frontmatter"
+    extension: "json"
+    format: "json"
     slug: "{{slug}}"
     fields:
       - { label: "Project Name", name: "title", widget: "string" }
@@ -159,8 +159,8 @@ collections:
     label: "Website Pages"
     folder: "cms/pages"
     create: true
-    extension: "md"
-    format: "yaml-frontmatter"
+    extension: "json"
+    format: "json"
     slug: "{{slug}}"
     fields:
       - { label: "Page Title", name: "title", widget: "string" }
